@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:visitbpr/data_nasabah.dart';
 import 'package:visitbpr/lembarkunjungan_page.dart';
 import 'package:visitbpr/login_page.dart';
-import 'package:visitbpr/result_page.dart'; // Ganti sesuai nama file
+import 'package:visitbpr/result_page.dart'; 
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0A1D37), // Warna biru tua
+      backgroundColor: const Color(0xFF0A1D37), 
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -146,6 +147,15 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(builder: (context) => ResultPage(),
                   ),
                 );
+              },
+            ),
+            const SizedBox(height: 20),
+            _buildMenuCard(
+              icon: Icons.people,
+              title: "Data Nasabah (Lama)",
+              onTap: () {
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => DataNasabahPage()));
               },
             ),
           ],
